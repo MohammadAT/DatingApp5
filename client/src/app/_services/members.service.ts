@@ -15,7 +15,7 @@ export class MembersService {
   constructor(private http: HttpClient) {}
 
   getMembers() {
-    if ((this.Members.length > 0)) return of(this.Members);
+    if (this.Members.length > 0) return of(this.Members);
     return this.http.get<Member[]>(this.baseUrl + 'users').pipe(
       map((memers) => {
         this.Members = memers;
@@ -25,7 +25,7 @@ export class MembersService {
   }
 
   getMember(username: string) {
-    const member = this.Members.find(x=> x.username == username);
+    const member = this.Members.find((x) => x.username == username);
     if (member !== undefined) {
       return of(member);
     }
@@ -39,5 +39,13 @@ export class MembersService {
         this.Members[index] = member;
       })
     );
+  }
+
+  setMainPhoto(photoId: number) {
+    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});
+  }
+
+  deletePhoto(photoId: number) {
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
   }
 }
