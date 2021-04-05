@@ -1,8 +1,9 @@
 @inherits LayoutComponentBase
+@inject IAuthenticationService AuthenticationService
 
 <div class="page">
     <div class="sidebar">
-        <NavMenu />
+        <NavMenu AuthenticationService="AuthenticationService"/>
     </div>
 
     <div class="main">
