@@ -1,0 +1,16 @@
+﻿@page "/member/{Username}"
+<h3>MemberDetail</h3>
+
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-2 member-card">
+    <div class="card">
+        <img src="@member.PhotoUrl" class="card-img-top" alt="@member.KnownAs">
+        <div class="card-body">
+            <h5 class="card-title">@member.KnownAs</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Age: @member.Age, City: @member.City</h6>
+            <p class="card-text">
+                Age: @member.Age, City: @member.City
+            </p>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</div>

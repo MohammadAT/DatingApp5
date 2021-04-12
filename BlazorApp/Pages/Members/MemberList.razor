@@ -1,6 +1,12 @@
 ﻿@page "/members"
 <h3>MemberList</h3>
 
+@if (loading)
+{
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+}
 
 @if (membersList == null)
 {
@@ -12,17 +18,7 @@ else
 
         @foreach (var member in membersList)
         {
-            <div class="col-2">
-                <div class="card">
-                    <img src="@member.PhotoUrl" class="card-img-top" alt="@member.KnownAs">
-                    <div class="card-body">
-                        <h5 class="card-title">@member.KnownAs</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Age: @member.Age, City: @member.City</h6>
-                        <p class="card-text">@member.LookingFor</p>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
+            <MemberCard Member="member"></MemberCard>
         }
 
     </div>
