@@ -1,0 +1,27 @@
+﻿@page "/members"
+<h3>MemberList</h3>
+
+@if (loading)
+{
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+}
+
+@if (membersList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+
+        @foreach (var member in membersList)
+        {
+            <MemberCard Member="member"></MemberCard>
+        }
+
+    </div>
+
+
+}

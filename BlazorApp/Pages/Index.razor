@@ -1,0 +1,11 @@
+﻿@page "/"
+@inject IAuthenticationService AuthenticationService
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@if (AuthenticationService.User != null)
+{
+    <p>User Login is: @AuthenticationService.User?.Username</p>
+}
