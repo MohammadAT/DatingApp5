@@ -1,7 +1,7 @@
 <div class="row" *ngIf="member">
     <div class="col-4">
         <div class="card">
-            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}" 
+            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}"
                 class="card-img-top img-thumbnail">
             <div class="card-body">
                 <div>
@@ -34,16 +34,28 @@
         <tabset class="member-tabset">
             <tab heading='About {{member.knownAs}}'>
                 <h4>Description</h4>
+                <div class="alert alert-info" *ngIf="member.introduction == ''">
+                    <strong>Information: </strong> No Description Added!
+                </div>
                 <p>{{member.introduction}}</p>
                 <h4>Looking for</h4>
+                <div class="alert alert-info" *ngIf="member.lookingFor == ''">
+                    <strong>Information: </strong> No Looking for Added!
+                </div>
                 <p>{{member.lookingFor}}</p>
             </tab>
             <tab heading='Interests'>
                 <h4>Interests</h4>
+                <div class="alert alert-info" *ngIf="member.interests == ''">
+                    <strong>Information: </strong> No Interests Added!
+                </div>
                 <p>{{member.interests}}</p>
             </tab>
             <tab heading='Photos'>
-                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" 
+                <div class="alert alert-info" *ngIf="member.photos.length <= 0">
+                    <strong>Information: </strong> No Photos Added!
+                </div>
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages"
                     style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>
             </tab>
             <tab heading='Messages'>
